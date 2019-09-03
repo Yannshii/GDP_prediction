@@ -15,11 +15,14 @@ import sys
 maxlen = 5
 n_hidden = 300
 nepoch = 100
+activation = "linear"
 
 maxlen = int(sys.argv[1])
 n_hidden = int(sys.argv[2])
 nepoch = int(sys.argv[3])
 activation = str(sys.argv[4])
+pic_path1 = str(sys.argv[5])
+pic_path2 = str(sys.argv[6])
 
 
 def make_dataset(low_data,  maxlen=25):
@@ -35,9 +38,9 @@ def make_dataset(low_data,  maxlen=25):
 
     return re_data, re_target
 
-path = "./data/5194/5194_2018.csv"
-df = pd.read_csv(path, index_col="日付")
-f = np.array(df["終値"])
+path = "./data/GDPC1.csv"
+df = pd.read_csv(path, index_col="DATE")
+f = np.array(df["GDPC1"])
 
 
 #nepoch = 10**4
@@ -90,18 +93,27 @@ model.fit(train_X, train_Y,
 
 predicted = model.predict(train_X)
 print(predicted)
-plt.figure()
-plt.plot(range(maxlen,len(predicted)+maxlen), predicted*sqrt(tXv) + tXm, color="r", label="predict_data")
-plt.plot(range(0, len(f)), f, color="b", label="row_data")
+plt.figure(figsize=(15,9))
+plt.plot(range(maxlen,len(predicted)+maxlen), predicted*sqrt(tXv) + tXm, color="r", label="fitting")
+plt.plot(range(0, len(train_Y)), train_Y*sqrt(tXv) + tXm, color="b", label="row_data")
+plt.xticks(range(0, len(train_Y)), df.index[:ttsi])
+plt.tick_params(labelsize=2, rotation=90)
 plt.legend()
+plt.savefig(pic_path1)
 plt.show()
 
+
 test_pred = model.predict(test_X)
-plt.figure()
+plt.figure(figsize=(15,9))
 plt.plot(range(0, len(test_Y)), test_Y*sqrt(tXv) + tXm, color="blue", label="row_data")
 plt.plot(range(0, len(test_pred)), test_pred*sqrt(tXv) + tXm, color="r", label="prediction")
+plt.xticks(range(0, len(test_Y)), df.index[ttsi:])
+plt.tick_params(labelsize=6, rotation=90)
 plt.legend()
+plt.savefig(pic_path2)
 plt.show()
+
+
 
 print("rmse : ")
 dif = sum(test_pred - test_Y)
