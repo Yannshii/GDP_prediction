@@ -13,7 +13,7 @@ In the source code "src/lstm.py ", LSTM program was implenmented.
 
 
 ### Example of model loss
-
+loss of validataion and training data sets.
 <image src="result/pictures/example_of_model_loss.png">
 
 <!-- <image src="result/pictures/lstm/len5_neuron300_epoch1000_linear_activtion_pred.png"> -->
