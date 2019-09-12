@@ -8,7 +8,15 @@ In the source code "src/lstm.py ", LSTM program was implenmented.
 
 <image src="pics/lstm_system.png">
 
-<image src="result/pictures/lstm/len5_neuron100_epoch1000_len10_neuron100_epoch1000_linear_activtion_fitting.png">
+
+<image src="result/pictures/lstm/len5_neuron300_epoch1000_linear_activtion_fitting.png">
+
+
+### Example of model loss
+
+<image src="result/pictures/example_of_model_loss.png">
+
+<!-- <image src="result/pictures/lstm/len5_neuron300_epoch1000_linear_activtion_pred.png"> -->
 
 ## [2] CNN
 Application of Convolution Network to real time series data is now, struggling me.
