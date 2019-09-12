@@ -144,7 +144,7 @@ plt.savefig(pic_path2)
 #plt.show()
 
 
-
+plt.figure(figsize=(15,9))
 plt.plot(lstm_model.history.history["loss"])
 plt.plot(lstm_model.history.history["val_loss"])
 plt.title("model loss")
