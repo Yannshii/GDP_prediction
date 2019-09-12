@@ -19,4 +19,4 @@ In the source code "src/lstm.py ", LSTM program was implenmented.
 <!-- <image src="result/pictures/lstm/len5_neuron300_epoch1000_linear_activtion_pred.png"> -->
 
 ## [2] CNN
-Application of Convolution Network to real time series data is now, struggling me.
+Application of Convolution Network to real time series data .
